@@ -108,20 +108,20 @@
 
         .contact-hero p {
             font-family: var(--font-serif);
-            font-size: 1.05rem;
+            font-size: 1.18rem;
             font-weight: 300;
             font-style: italic;
             color: var(--white-soft);
-            max-width: 500px;
+            max-width: 520px;
             margin: 0 auto;
             line-height: 1.8;
         }
 
         /* ===== MAIN CONTENT ===== */
         .contact-body {
-            max-width: 900px;
+            max-width: 960px;
             margin: 0 auto;
-            padding: 5rem 2rem;
+            padding: 5rem 2.5rem;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 5rem;
@@ -130,15 +130,15 @@
         /* ===== CALENDLY SECTION ===== */
         .book-section h2 {
             font-family: var(--font-serif);
-            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-size: clamp(1.8rem, 3.5vw, 2.4rem);
             font-weight: 300;
             font-style: italic;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.4rem;
         }
 
         .book-section p {
             font-family: var(--font-serif);
-            font-size: 0.95rem;
+            font-size: 1.12rem;
             font-weight: 300;
             font-style: italic;
             color: var(--white-soft);
@@ -165,28 +165,28 @@
 
         .calendly-placeholder {
             margin-top: 2rem;
-            padding: 2rem;
+            padding: 2.2rem;
             border: 1px solid rgba(255,255,255,0.15);
             text-align: center;
             font-family: var(--font-serif);
             font-style: italic;
             color: var(--white-muted);
-            font-size: 0.9rem;
+            font-size: 1rem;
             line-height: 1.8;
         }
 
         /* ===== FORM SECTION ===== */
         .form-section h2 {
             font-family: var(--font-serif);
-            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-size: clamp(1.8rem, 3.5vw, 2.4rem);
             font-weight: 300;
             font-style: italic;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.4rem;
         }
 
         .form-section p {
             font-family: var(--font-serif);
-            font-size: 0.95rem;
+            font-size: 1.12rem;
             font-weight: 300;
             font-style: italic;
             color: var(--white-soft);
@@ -197,28 +197,27 @@
         .contact-form {
             display: flex;
             flex-direction: column;
-            gap: 1.2rem;
+            gap: 1.5rem;
         }
 
         .contact-form label {
-            font-family: var(--font-sans);
-            font-size: 0.75rem;
-            font-weight: 300;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            color: var(--white-muted);
-            margin-bottom: 0.3rem;
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            font-weight: 400;
+            letter-spacing: 0.03em;
+            color: var(--white-soft);
+            margin-bottom: 0.4rem;
         }
 
         .contact-form input,
         .contact-form textarea {
             width: 100%;
-            padding: 0.9rem 1rem;
-            background: transparent;
-            border: 1px solid rgba(255,255,255,0.2);
+            padding: 1rem 1.1rem;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.25);
             color: var(--white);
             font-family: var(--font-sans);
-            font-size: 0.9rem;
+            font-size: 1rem;
             font-weight: 300;
             outline: none;
             transition: border-color 0.3s;
@@ -246,21 +245,23 @@
         }
 
         .btn-submit {
-            padding: 1rem 2.2rem;
+            padding: 1.1rem 2.8rem;
             background: var(--white);
             color: var(--black);
             border: none;
             font-family: var(--font-serif);
-            font-size: 0.95rem;
-            font-weight: 400;
-            letter-spacing: 0.02em;
+            font-size: 1.05rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: background 0.3s, transform 0.2s;
             align-self: flex-start;
+            margin-top: 0.5rem;
         }
 
         .btn-submit:hover {
             background: #e0e0e0;
+            transform: translateY(-1px);
         }
 
         .form-success {
@@ -268,7 +269,7 @@
             font-family: var(--font-serif);
             font-style: italic;
             color: var(--white-soft);
-            font-size: 1.05rem;
+            font-size: 1.15rem;
             line-height: 1.8;
             padding: 2rem 0;
         }
@@ -397,6 +398,9 @@
             <div class="form-success" id="formSuccess">
                 <p>Thank you for reaching out. I'll be in touch soon.</p>
             </div>
+            <div class="form-error" id="formError" style="display:none; font-family: var(--font-serif); font-style: italic; color: #e88; font-size: 1rem; padding: 1rem 0;">
+                <p>Something went wrong. Please try again or email me directly.</p>
+            </div>
         </div>
 
     </div>
@@ -427,8 +431,11 @@
 
         // Form submission handling
         const form = document.getElementById('contactForm');
+        const submitBtn = form.querySelector('.btn-submit');
         form.addEventListener('submit', function(e) {
             e.preventDefault();
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
             const data = new FormData(form);
             fetch(form.action, {
                 method: 'POST',
@@ -438,10 +445,15 @@
                 if (response.ok) {
                     form.style.display = 'none';
                     document.getElementById('formSuccess').style.display = 'block';
+                } else {
+                    submitBtn.textContent = 'Send';
+                    submitBtn.disabled = false;
+                    document.getElementById('formError').style.display = 'block';
                 }
             }).catch(() => {
-                form.style.display = 'none';
-                document.getElementById('formSuccess').style.display = 'block';
+                submitBtn.textContent = 'Send';
+                submitBtn.disabled = false;
+                document.getElementById('formError').style.display = 'block';
             });
         });
     </script>
