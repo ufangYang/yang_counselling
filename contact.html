@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Lou Yang Counselling</title>
+    <meta name="description" content="Book a discovery call or send a message. Lou Yang Counselling, Berlin.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --black: #0a0a0a;
+            --black-light: #141414;
+            --white: #FFFFFF;
+            --white-soft: rgba(255,255,255,0.78);
+            --white-muted: rgba(255,255,255,0.5);
+            --font-serif: 'Cormorant Garamond', 'Times New Roman', serif;
+            --font-sans: 'Inter', -apple-system, sans-serif;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--white);
+            background: var(--black);
+            line-height: 1.7;
+            font-weight: 300;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            background: rgba(10, 10, 10, 0.92);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: 0.03em;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 1.5rem;
+            white-space: nowrap;
+        }
+
+        .nav-back {
+            color: var(--white);
+            text-decoration: none;
+            font-family: var(--font-sans);
+            font-size: 0.82rem;
+            font-weight: 300;
+            letter-spacing: 0.02em;
+            transition: opacity 0.3s;
+        }
+
+        .nav-back:hover { opacity: 0.6; }
+
+        /* ===== HERO ===== */
+        .contact-hero {
+            position: relative;
+            padding: 10rem 2rem 5rem;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .contact-hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.2) grayscale(30%);
+            z-index: 0;
+        }
+
+        .contact-hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-hero h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+            font-weight: 300;
+            font-style: italic;
+            line-height: 1.2;
+            margin-bottom: 1.2rem;
+        }
+
+        .contact-hero p {
+            font-family: var(--font-serif);
+            font-size: 1.05rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--white-soft);
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .contact-body {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+        }
+
+        /* ===== CALENDLY SECTION ===== */
+        .book-section h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 300;
+            font-style: italic;
+            margin-bottom: 1.2rem;
+        }
+
+        .book-section p {
+            font-family: var(--font-serif);
+            font-size: 0.95rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--white-soft);
+            line-height: 1.85;
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 1rem 2.2rem;
+            background: var(--white);
+            color: var(--black);
+            text-decoration: none;
+            font-family: var(--font-serif);
+            font-size: 0.95rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: #e0e0e0;
+        }
+
+        .calendly-placeholder {
+            margin-top: 2rem;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.15);
+            text-align: center;
+            font-family: var(--font-serif);
+            font-style: italic;
+            color: var(--white-muted);
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        /* ===== FORM SECTION ===== */
+        .form-section h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 300;
+            font-style: italic;
+            margin-bottom: 1.2rem;
+        }
+
+        .form-section p {
+            font-family: var(--font-serif);
+            font-size: 0.95rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--white-soft);
+            line-height: 1.85;
+            margin-bottom: 2rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .contact-form label {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--white-muted);
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: var(--white);
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 300;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: var(--white-muted);
+            font-style: italic;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .btn-submit {
+            padding: 1rem 2.2rem;
+            background: var(--white);
+            color: var(--black);
+            border: none;
+            font-family: var(--font-serif);
+            font-size: 0.95rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            cursor: pointer;
+            transition: background 0.3s;
+            align-self: flex-start;
+        }
+
+        .btn-submit:hover {
+            background: #e0e0e0;
+        }
+
+        .form-success {
+            display: none;
+            font-family: var(--font-serif);
+            font-style: italic;
+            color: var(--white-soft);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            padding: 2rem 0;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--white);
+            color: #666;
+            padding: 2.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.78rem;
+            font-weight: 300;
+            letter-spacing: 0.02em;
+        }
+
+        footer a {
+            color: #444;
+            text-decoration: none;
+        }
+
+        footer a:hover { color: var(--black); }
+
+        .footer-right {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            nav { padding: 1.2rem 1.5rem; }
+
+            .nav-logo {
+                position: relative;
+                left: auto;
+                transform: none;
+                top: auto;
+                font-size: 1.2rem;
+            }
+
+            .contact-body {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                padding: 3rem 1.5rem;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .footer-right {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+        /* ===== FADE-IN ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-back">&larr; Back</a>
+        <a href="index.html" class="nav-logo">Lou Yang Counselling</a>
+        <span></span>
+    </nav>
+
+    <!-- Hero -->
+    <section class="contact-hero">
+        <div class="contact-hero-bg"></div>
+        <div class="contact-hero-content fade-in">
+            <h1>Let's connect.</h1>
+            <p>Whether you're ready to book a session or simply want to ask a question, I'd love to hear from you.</p>
+        </div>
+    </section>
+
+    <!-- Contact Body -->
+    <div class="contact-body">
+
+        <!-- Left: Book a Call -->
+        <div class="book-section fade-in">
+            <h2>Book a discovery call.</h2>
+            <p>A free 20-minute call to explore whether we're a good fit. No pressure, no commitment. Just a conversation about what you need and how I can help.</p>
+            <!-- Calendly placeholder - replace with your Calendly link once set up -->
+            <div class="calendly-placeholder">
+                Calendly scheduling will appear here once set up.<br>
+                In the meantime, use the form to get in touch.
+            </div>
+        </div>
+
+        <!-- Right: Contact Form -->
+        <div class="form-section fade-in">
+            <h2>Send a message.</h2>
+            <p>Prefer to write? Drop me a message and I'll get back to you within 48 hours.</p>
+
+            <form class="contact-form" id="contactForm" action="https://formspree.io/f/xplaceholder" method="POST">
+                <div class="form-field">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your name" required>
+                </div>
+                <div class="form-field">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                </div>
+                <div class="form-field">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Tell me a little about what brings you here..." required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Send</button>
+            </form>
+
+            <div class="form-success" id="formSuccess">
+                <p>Thank you for reaching out. I'll be in touch soon.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <span>&copy; 2026 Lou Yang Counselling</span>
+        <div class="footer-right">
+            <a href="index.html">Home</a>
+            <span>Berlin, Germany</span>
+        </div>
+    </footer>
+
+    <script>
+        // Fade-in on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+            if (el.getBoundingClientRect().top < window.innerHeight) {
+                el.classList.add('visible');
+            }
+        });
+
+        // Form submission handling
+        const form = document.getElementById('contactForm');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const data = new FormData(form);
+            fetch(form.action, {
+                method: 'POST',
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    form.style.display = 'none';
+                    document.getElementById('formSuccess').style.display = 'block';
+                }
+            }).catch(() => {
+                form.style.display = 'none';
+                document.getElementById('formSuccess').style.display = 'block';
+            });
+        });
+    </script>
+
+</body>
+</html>
