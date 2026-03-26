@@ -93,7 +93,7 @@
     <section class="deeper">
         <div class="fade-in">
             <h2>This is a space for deeper change.</h2>
-            <p>If you\u2019re feeling stuck, in transition, or simply ready to reconnect with what matters most, you\u2019re in the right place. I offer 1:1 counselling to help you uncover what\u2019s beneath the surface, untangle what\u2019s holding you back, and move forward with clarity and purpose.</p>
+            <p>If you're feeling stuck, in transition, or simply ready to reconnect with what matters most, you're in the right place. I offer 1:1 counselling to help you uncover what's beneath the surface, untangle what's holding you back, and move forward with clarity and purpose.</p>
         </div>
     </section>
 
@@ -102,7 +102,7 @@
             <div class="fade-in"><div class="split-image-placeholder">Your photo here</div></div>
             <div class="split-text fade-in">
                 <h2>Become who you were always meant to be.</h2>
-                <p>Counselling grounded in Cognitive Behavioral Therapy and Intercultural Mindfulness goes beyond coping strategies. It\u2019s about inner shifts, exploring your beliefs, patterns, and identity so you can show up more fully in your life abroad. It\u2019s not about fixing you. It\u2019s about helping you find your way.</p>
+                <p>Counselling grounded in Cognitive Behavioral Therapy and Intercultural Mindfulness goes beyond coping strategies. It's about inner shifts, exploring your beliefs, patterns, and identity so you can show up more fully in your life abroad. It's not about fixing you. It's about helping you find your way.</p>
                 <a href="#contact" class="btn-primary">Book a Discovery Call</a>
             </div>
         </div>
@@ -125,7 +125,7 @@
         <div class="faq-content fade-in">
             <div class="faq-item"><button class="faq-question">What is CBT with Intercultural Mindfulness and how does it differ from other approaches?</button><div class="faq-answer"><p>CBT gives you practical, evidence-based tools to identify and change unhelpful thought patterns. By combining it with Intercultural Mindfulness, we also honour the cultural context that shapes your experience, creating an approach that addresses both your inner world and the realities of living across cultures.</p></div></div>
             <div class="faq-item"><button class="faq-question">How do online sessions work?</button><div class="faq-answer"><p>Sessions are 50 minutes, conducted via secure video. Online counselling offers the same depth as in-person work, with the flexibility of connecting from wherever you are. All you need is a private, quiet space and a stable connection.</p></div></div>
-            <div class="faq-item"><button class="faq-question">Who is this counselling best suited for?</button><div class="faq-answer"><p>My practice is designed for expats, international professionals, students, and anyone navigating life across cultures. Whether you\u2019ve just arrived in a new country or have been abroad for years, if you\u2019re dealing with burnout, career uncertainty, attachment challenges, or a sense of disconnection, this space is for you.</p></div></div>
+            <div class="faq-item"><button class="faq-question">Who is this counselling best suited for?</button><div class="faq-answer"><p>My practice is designed for expats, international professionals, students, and anyone navigating life across cultures. Whether you've just arrived in a new country or have been abroad for years, if you're dealing with burnout, career uncertainty, attachment challenges, or a sense of disconnection, this space is for you.</p></div></div>
         </div>
     </section>
 
@@ -139,10 +139,9 @@
     </section>
 
     <footer>
-        <span>\u00A9 2026 Lou Yang Counselling</span>
+        <span>&copy; 2026 Lou Yang Counselling</span>
         <div class="footer-right">
             <a href="mailto:drlou.yang@gmail.com">Email</a>
-            <a href="https://complicated.life/find-a-therapist/berlin/counsellor-lou-yang" target="_blank" rel="noopener">It\u2019s Complicated</a>
             <span>Berlin, Germany</span>
         </div>
     </footer>
@@ -156,7 +155,7 @@
         navLinks.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => navLinks.classList.remove('open')); });
         document.querySelectorAll('.faq-question').forEach(btn => { btn.addEventListener('click', () => { const item = btn.parentElement; const isActive = item.classList.contains('active'); document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active')); if (!isActive) item.classList.add('active'); }); });
         const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } }); }, { threshold: 0.12 });
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el); if (el.getBoundingClientRect().top < window.innerHeight) { el.classList.add("visible"); } });
     <\/script>
 </body>
       </html>
