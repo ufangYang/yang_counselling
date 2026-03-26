@@ -178,11 +178,11 @@
 
         .deeper p {
             font-family: var(--font-serif);
-            font-size: 1.05rem;
+            font-size: 1.15rem;
             font-weight: 300;
             font-style: italic;
             line-height: 1.9;
-            max-width: 580px;
+            max-width: 600px;
             margin: 0 auto;
             color: #3a3a3a;
         }
@@ -237,12 +237,12 @@
 
         .split-text p {
             font-family: var(--font-serif);
-            font-size: 0.95rem;
+            font-size: 1.12rem;
             font-weight: 300;
             font-style: italic;
             line-height: 1.9;
             color: var(--white-soft);
-            max-width: 400px;
+            max-width: 440px;
             margin: 0 auto 2.5rem;
         }
 
@@ -357,7 +357,7 @@
 
         .faq-answer p {
             font-family: var(--font-serif);
-            font-size: 0.92rem;
+            font-size: 1.05rem;
             font-weight: 300;
             font-style: italic;
             color: var(--white-soft);
@@ -383,41 +383,68 @@
 
         .about-section p {
             font-family: var(--font-serif);
-            font-size: 1rem;
+            font-size: 1.12rem;
             font-weight: 300;
             font-style: italic;
             line-height: 1.9;
             color: #3a3a3a;
-            max-width: 620px;
+            max-width: 640px;
             margin: 0 auto 1.5rem;
         }
 
-        .specialization-tags {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 0.8rem;
-            margin-top: 2.5rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+        /* ===== SERVICES CARD GRID ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            max-width: 960px;
+            margin: 3.5rem auto 0;
         }
 
-        .spec-tag {
-            padding: 0.5rem 1.4rem;
-            border: 1px solid #ccc;
+        .service-card {
+            text-align: center;
+        }
+
+        .service-card img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            filter: grayscale(40%) brightness(0.85);
+            margin-bottom: 1.2rem;
+            transition: filter 0.4s;
+        }
+
+        .service-card:hover img {
+            filter: grayscale(10%) brightness(0.95);
+        }
+
+        .service-card h3 {
             font-family: var(--font-serif);
-            font-size: 0.88rem;
+            font-size: 1.25rem;
+            font-weight: 400;
+            font-style: italic;
+            color: var(--black);
+            margin-bottom: 0.7rem;
+            line-height: 1.3;
+        }
+
+        .service-card p {
+            font-family: var(--font-serif);
+            font-size: 1rem;
             font-weight: 300;
             font-style: italic;
-            color: #3a3a3a;
-            transition: all 0.3s;
+            color: #555;
+            line-height: 1.75;
+            max-width: 280px;
+            margin: 0 auto;
         }
 
-        .spec-tag:hover {
-            background: var(--black);
-            color: var(--white);
-            border-color: var(--black);
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+                max-width: 400px;
+            }
         }
 
         /* ===== SECTION: TESTIMONIALS ===== */
@@ -452,7 +479,7 @@
 
         .testimonial-card p {
             font-family: var(--font-serif);
-            font-size: 0.95rem;
+            font-size: 1.05rem;
             font-weight: 300;
             font-style: italic;
             line-height: 1.85;
@@ -510,11 +537,11 @@
 
         .cta-section p {
             font-family: var(--font-serif);
-            font-size: 1rem;
+            font-size: 1.12rem;
             font-weight: 300;
             font-style: italic;
             color: var(--white-soft);
-            max-width: 500px;
+            max-width: 520px;
             margin: 0 auto 2.5rem;
             line-height: 1.8;
         }
@@ -659,7 +686,7 @@
     <section class="deeper">
         <div class="fade-in">
             <h2>This is a space for deeper change.</h2>
-            <p>If you're feeling stuck, in transition, or simply ready to reconnect with what matters most, you're in the right place. I offer 1:1 counselling to help you uncover what's beneath the surface, untangle what's holding you back, and move forward with clarity and purpose.</p>
+            <p>If you’re feeling stuck, in transition, or simply ready to reconnect with what matters most, you’re in the right place. I offer 1:1 counselling to help you uncover what’s beneath the surface, untangle what’s holding you back, and move forward with clarity and purpose.</p>
         </div>
     </section>
 
@@ -667,11 +694,11 @@
     <section class="split" id="services">
         <div class="split-inner">
             <div class="fade-in">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80" alt="Spiral staircase in black and white" class="split-image" onerror="this.outerHTML='<div class=\'split-image-placeholder\'>Your photo here</div>'">
+                <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&q=80" alt="Professional woman in contemplation" class="split-image" onerror="this.outerHTML='<div class=\'split-image-placeholder\'>Your photo here</div>'">
             </div>
             <div class="split-text fade-in">
                 <h2>Become who you were always meant to be.</h2>
-                <p>Counselling grounded in CBT, Cognitive Neuroscience, and Intercultural Mindfulness goes beyond coping strategies. By understanding how your brain processes change, stress, and cultural adaptation, we work with both the science and the lived experience. It's not about fixing you. It's about helping you find your way.</p>
+                <p>Counselling grounded in CBT, Cognitive Neuroscience, and Intercultural Mindfulness goes beyond coping strategies. By understanding how your brain processes change, stress, and cultural adaptation, we work with both the science and the lived experience. It’s not about fixing you. It’s about helping you find your way.</p>
                 <a href="contact.html" class="btn-primary">Book a Discovery Call</a>
             </div>
         </div>
@@ -688,13 +715,37 @@
                 <span>Chinese</span>
                 <span>French</span>
             </div>
-            <div class="specialization-tags">
-                <span class="spec-tag">Burnout</span>
-                <span class="spec-tag">Career Transitions</span>
-                <span class="spec-tag">Expat Life</span>
-                <span class="spec-tag">Attachment</span>
-                <span class="spec-tag">Trauma</span>
-                <span class="spec-tag">Academic Challenges</span>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1541199249251-f713e6145474?w=600&q=80" alt="Burnout recovery">
+                    <h3>Burnout Recovery</h3>
+                    <p>For professionals running on empty. We work with the neuroscience of exhaustion to rebuild energy, boundaries, and a sustainable relationship with work.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80" alt="Career transitions">
+                    <h3>Career Transitions</h3>
+                    <p>Navigating a new role, industry, or direction. We explore what’s driving the shift and build clarity and confidence for what comes next.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=600&q=80" alt="Expat life challenges">
+                    <h3>Expat Life</h3>
+                    <p>The emotional weight of living between cultures. We address identity, belonging, and the hidden grief of displacement that rarely gets named.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?w=600&q=80" alt="Attachment patterns">
+                    <h3>Attachment &amp; Relationships</h3>
+                    <p>Understanding how early patterns shape your connections today. We work with attachment science to build healthier, more secure relationships.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?w=600&q=80" alt="Trauma processing">
+                    <h3>Trauma &amp; Resilience</h3>
+                    <p>Processing difficult experiences without being defined by them. A neuroscience-grounded approach to healing that respects your pace and your story.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c476?w=600&q=80" alt="Academic challenges">
+                    <h3>Academic Challenges</h3>
+                    <p>For students and researchers navigating imposter syndrome, perfectionism, or the pressure of international academia. We work with both the mind and the system.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -718,7 +769,7 @@
             <div class="faq-item">
                 <button class="faq-question">Who is this counselling best suited for?</button>
                 <div class="faq-answer">
-                    <p>My practice is designed for expats, international professionals, students, and anyone navigating life across cultures. Whether you've just arrived in a new country or have been abroad for years, if you're dealing with burnout, career uncertainty, attachment challenges, or a sense of disconnection, this space is for you.</p>
+                    <p>My practice is designed for expats, international professionals, students, and anyone navigating life across cultures. Whether you’ve just arrived in a new country or have been abroad for years, if you’re dealing with burnout, career uncertainty, attachment challenges, or a sense of disconnection, this space is for you.</p>
                 </div>
             </div>
         </div>
@@ -730,7 +781,7 @@
             <h2>What clients say.</h2>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
-                    <p>"Working with Lou helped me see patterns I'd carried across three countries without realising. For the first time, I felt understood as a whole person, not just a set of symptoms."</p>
+                    <p>"Working with Lou helped me see patterns I’d carried across three countries without realising. For the first time, I felt understood as a whole person, not just a set of symptoms."</p>
                     <span class="attribution">Expat professional, Berlin</span>
                 </div>
                 <div class="testimonial-card">
@@ -738,7 +789,7 @@
                     <span class="attribution">Researcher, relocated from East Asia</span>
                 </div>
                 <div class="testimonial-card">
-                    <p>"I came in feeling burned out and disconnected. Lou created a space where my cultural background wasn't something to 'get over' but something to work with. That made all the difference."</p>
+                    <p>"I came in feeling burned out and disconnected. Lou created a space where my cultural background wasn’t something to ‘get over’ but something to work with. That made all the difference."</p>
                     <span class="attribution">International student, Germany</span>
                 </div>
             </div>
