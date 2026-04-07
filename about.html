@@ -419,7 +419,7 @@
             </div>
             <div class="bio-text">
                 <h2>From researcher to counsellor</h2>
-                <p>I hold a PhD in Psychology from the University of Bristol and have lived and worked in Taiwan, the UK, France, Belgium, and Germany. That's five countries, three languages, and more moments of "who am I here?" than I can count.</p>
+                <p>I hold a Master's in Psychology from the University of Bristol and a PhD from France. I've lived and worked in Taiwan, the UK, France, Belgium, and Germany. That's five countries, four languages, and more moments of "who am I here?" than I can count.</p>
                 <p>This multicultural journey shapes everything I do. I know what it feels like to rebuild your sense of self in a new culture, to carry grief for a home that no longer fits, and to navigate professional life while translating between worlds.</p>
                 <p>My background in cognitive neuroscience means I don't just understand these challenges emotionally. I understand what's happening in the brain when you're stuck in burnout, when anxiety spikes before a meeting in your second language, or when you can't explain to anyone why moving abroad feels like loss.</p>
             </div>
@@ -430,15 +430,19 @@
             <h2>Training and background</h2>
             <div class="cred-grid">
                 <div class="cred-item">
-                    <h3>PhD in Psychology</h3>
+                    <h3>Master's in Psychology</h3>
                     <p>University of Bristol, UK</p>
+                </div>
+                <div class="cred-item">
+                    <h3>PhD in Psychology</h3>
+                    <p>France</p>
                 </div>
                 <div class="cred-item">
                     <h3>Cognitive Behavioural Therapy</h3>
                     <p>Evidence-based approach grounded in neuroscience research</p>
                 </div>
                 <div class="cred-item">
-                    <h3>Intercultural Mindfulness</h3>
+                    <h3>Intercultural Mindfullness</h3>
                     <p>Culturally sensitive practice for cross-cultural experiences</p>
                 </div>
                 <div class="cred-item">
@@ -455,14 +459,15 @@
                 <span>English</span>
                 <span>Chinese</span>
                 <span>French</span>
+                <span>German (B1)</span>
             </div>
         </div>
 
         <!-- CTA -->
         <div class="about-cta fade-in">
             <h2>Want to work together?</h2>
-            <p>The first step is a free 15-minute discovery call. No commitment, just a conversation.</p>
-            <a href="contact.html" class="btn-primary">Book a Free Call</a>
+            <p>Start with a get-to-know-each-other session. No long-term commitment required.</p>
+            <a href="contact.html" class="btn-primary">Get in Touch</a>
         </div>
 
     </div>
@@ -478,31 +483,9 @@
 
     <!-- Scripts -->
     <script>
-        // Mobile nav
-        const navToggle = document.getElementById('navToggle');
-        const navLinks = document.getElementById('navLinks');
-        navToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('open');
-        });
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => navLinks.classList.remove('open'));
-        });
+        // Mobile nav*        const navToggle = document.getElementById('navToggle');        const navLinks = document.getElementById('navLinks');        navToggle.addEventListener('click', () => {            navLinks.classList.toggle('open');        });        navLinks.querySelectorAll('a').forEach(link => {            link.addEventListener('click', () => navLinks.classList.remove('open'));        });
 
-        // Scroll fade-in
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.12 });
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-            if (el.getBoundingClientRect().top < window.innerHeight) {
-                el.classList.add('visible');
-            }
-        });
-    </script>
+        // Scroll fade-in        const observer = new IntersectionObserver((entries) => {            entries.forEach(entry => {                if (entry.isIntersecting) {                    entry.target.classList.add('visible');                }            });        }, { threshold: 0.12 });        document.querySelectorAll('.fade-in').forEach(el => {            observer.observe(el);            if (el.getBoundingClientRect().top < window.innerHeight) {                el.classList.add('visible');            }        });    </script>
 
 </body>
 </html>
