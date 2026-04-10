@@ -3,511 +3,440 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Fang Yang, PhD | Counselling in Berlin</title>
-    <meta name="description" content="Fang Yang, PhD is a Berlin-based counsellor blending CBT, cognitive neuroscience, and intercultural mindfulness for multicultural professionals in Berlin.">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>L</text></svg>">
+    <title>About &mdash; Fang Yang, PhD &middot; Counselling in Berlin</title>
+    <meta name="description" content="Dr Fang Yang is a Berlin-based counsellor with a PhD in Psychology, blending CBT and intercultural mindfulness for people building a life across cultures.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.92em' font-size='90' font-family='serif' fill='%23EAE6DE'>F</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --black: #0a0a0a;
-            --black-light: #141414;
-            --white: #FFFFFF;
-            --white-soft: rgba(255,255,255,0.78);
-            --white-muted: rgba(255,255,255,0.5);
-            --font-heading: 'DM Sans', -apple-system, sans-serif;
-            --font-body: 'DM Sans', -apple-system, sans-serif;
+            --bg: #0B0B0B;
+            --bg-soft: #141414;
+            --bg-elev: #1A1A1A;
+            --line: rgba(234, 230, 222, 0.12);
+            --text: #EAE6DE;
+            --text-soft: rgba(234, 230, 222, 0.72);
+            --text-mute: rgba(234, 230, 222, 0.5);
+            --accent: #B89968;
+            --serif: 'Cormorant Garamond', Georgia, serif;
+            --sans: 'Inter', -apple-system, system-ui, sans-serif;
         }
 
         html { scroll-behavior: smooth; }
-
         body {
-            font-family: var(--font-body);
-            color: var(--white);
-            background: var(--black);
-            line-height: 1.7;
-            font-weight: 400;
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--text);
+            font-weight: 300;
             font-size: 16px;
+            line-height: 1.7;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
         }
 
-        a:focus-visible, button:focus-visible {
-            outline: 2px solid rgba(255,255,255,0.6);
-            outline-offset: 3px;
-        }
+        a { color: inherit; text-decoration: none; }
+        img { max-width: 100%; display: block; }
 
-        /* ===== NAVIGATION ===== */
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 2.5rem; }
+        .container-narrow { max-width: 880px; margin: 0 auto; padding: 0 2.5rem; }
+
+        /* ===== NAV ===== */
         nav {
             position: fixed;
-            top: 0;
-            width: 100%;
+            top: 0; left: 0; right: 0;
             z-index: 100;
-            padding: 1.5rem 3rem;
+            padding: 1.6rem 2.5rem;
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            background: rgba(10, 10, 10, 0.92);
-            backdrop-filter: blur(10px);
+            align-items: center;
+            background: rgba(11, 11, 11, 0);
+            transition: background 0.4s ease, border-color 0.4s ease;
+            border-bottom: 1px solid transparent;
         }
-
-        .nav-left {
-            display: flex;
-            flex-direction: column;
-            gap: 0.15rem;
+        nav.scrolled {
+            background: rgba(11, 11, 11, 0.92);
+            backdrop-filter: blur(14px);
+            border-bottom-color: var(--line);
         }
-
-        .nav-left a {
-            color: var(--white);
-            text-decoration: none;
-            font-family: var(--font-body);
-            font-size: 0.82rem;
+        .nav-links { display: flex; gap: 2.4rem; }
+        .nav-links a {
+            font-size: 0.84rem;
             font-weight: 400;
-            letter-spacing: 0.02em;
-            transition: opacity 0.3s;
-        }
-
-        .nav-left a:hover { opacity: 0.6; }
-
-        .nav-row {
-            display: flex;
-            gap: 1.2rem;
-        }
-
-        .nav-logo {
-            font-family: var(--font-heading);
-            font-size: 1.4rem;
-            font-weight: 500;
-            color: var(--white);
-            text-decoration: none;
-            letter-spacing: 0.01em;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            top: 1.5rem;
-            white-space: nowrap;
-        }
-
-        .nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
+            letter-spacing: 0.04em;
+            color: var(--text-soft);
+            transition: color 0.25s;
             position: relative;
-            z-index: 101;
+            padding-bottom: 4px;
         }
-
-        .nav-toggle span {
-            display: block;
-            width: 22px;
+        .nav-links a:hover { color: var(--text); }
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            left: 0; right: 0; bottom: 0;
             height: 1px;
-            background: var(--white);
-            margin: 5px 0;
-            transition: all 0.3s;
+            background: var(--text);
+        }
+        .nav-logo {
+            font-family: var(--serif);
+            font-size: 1.55rem;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+            color: var(--text);
+            text-align: right;
+        }
+        .nav-logo .small {
+            font-family: var(--sans);
+            font-size: 0.7rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--text-mute);
+            display: block;
+            margin-top: 2px;
         }
 
-        /* ===== PAGE HEADER ===== */
-        .page-header {
-            padding: 10rem 2rem 4rem;
+        /* ===== PAGE HEAD ===== */
+        .page-head {
+            padding: 12rem 0 5rem;
             text-align: center;
+            border-bottom: 1px solid var(--line);
         }
-
-        .page-header h1 {
-            font-family: var(--font-heading);
-            font-size: clamp(2rem, 4vw, 3rem);
+        .page-head .eyebrow {
+            font-size: 0.78rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.6rem;
+        }
+        .page-head h1 {
+            font-family: var(--serif);
+            font-size: clamp(2.6rem, 6vw, 4.6rem);
             font-weight: 400;
-            letter-spacing: -0.02em;
-            margin-bottom: 1rem;
+            line-height: 1.08;
+            margin-bottom: 1.4rem;
         }
-
-        .page-header p {
-            font-weight: 300;
-            color: var(--white-soft);
+        .page-head h1 em { font-style: italic; color: var(--text-soft); }
+        .page-head p {
+            color: var(--text-soft);
+            max-width: 600px;
+            margin: 0 auto;
             font-size: 1.05rem;
-            max-width: 500px;
-            margin: 0 auto;
         }
 
-        /* ===== ABOUT CONTENT ===== */
-        .about-content {
-            max-width: 900px;
+        /* ===== PORTRAIT ===== */
+        .portrait-section {
+            padding: 5rem 0 2rem;
+        }
+        .portrait-wrap {
+            max-width: 480px;
             margin: 0 auto;
-            padding: 0 2rem 6rem;
+            aspect-ratio: 1/1;
+            background: var(--bg-elev);
+            overflow: hidden;
+            border: 1px solid var(--line);
+        }
+        .portrait-wrap img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            filter: grayscale(10%);
         }
 
-        .about-grid {
+        /* ===== BIO ===== */
+        .bio {
+            padding: 5rem 0 8rem;
+        }
+        .bio-body p {
+            font-size: 1.08rem;
+            color: var(--text-soft);
+            line-height: 1.95;
+            margin-bottom: 1.6rem;
+        }
+        .bio-body p:first-child::first-letter {
+            font-family: var(--serif);
+            font-size: 4.2rem;
+            float: left;
+            line-height: 0.85;
+            padding: 0.4rem 0.7rem 0 0;
+            color: var(--text);
+        }
+
+        /* ===== TRAINING ===== */
+        .training {
+            border-top: 1px solid var(--line);
+            background: var(--bg-soft);
+            padding: 7rem 0;
+        }
+        .training-grid {
             display: grid;
-            grid-template-columns: 1fr 1.2fr;
+            grid-template-columns: 1fr 2fr;
             gap: 4rem;
             align-items: start;
-            margin-bottom: 5rem;
         }
-
-        .photo-holder {
-            width: 100%;
-            aspect-ratio: 3 / 4;
-            background: var(--black-light);
-            border: 1px solid rgba(255,255,255,0.08);
+        .training h2 {
+            font-family: var(--serif);
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            font-weight: 400;
+            line-height: 1.2;
+        }
+        .training h2 em { font-style: italic; color: var(--text-soft); }
+        .training-list {
+            list-style: none;
+            border-top: 1px solid var(--line);
+        }
+        .training-list li {
+            padding: 1.4rem 0;
+            border-bottom: 1px solid var(--line);
             display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .photo-holder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .photo-placeholder {
-            color: var(--white-muted);
-            font-size: 0.85rem;
-            font-weight: 300;
-            text-align: center;
-            padding: 2rem;
-            line-height: 1.6;
-        }
-
-        .bio-text h2 {
-            font-family: var(--font-heading);
-            font-size: clamp(1.4rem, 2.5vw, 1.8rem);
-            font-weight: 400;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.01em;
-        }
-
-        .bio-text p {
-            color: var(--white-soft);
-            font-size: 1rem;
-            line-height: 1.85;
-            margin-bottom: 1.2rem;
-        }
-
-        .bio-text p:last-child {
-            margin-bottom: 0;
-        }
-
-        /* ===== CREDENTIALS ===== */
-        .credentials {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 3rem;
-            margin-bottom: 4rem;
-        }
-
-        .credentials h2 {
-            font-family: var(--font-heading);
-            font-size: 1.3rem;
-            font-weight: 400;
-            margin-bottom: 2rem;
-        }
-
-        .cred-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            justify-content: space-between;
             gap: 2rem;
+            color: var(--text-soft);
         }
-
-        .cred-item h3 {
-            font-size: 0.95rem;
-            font-weight: 500;
-            margin-bottom: 0.4rem;
+        .training-list .role {
+            font-family: var(--serif);
+            font-size: 1.15rem;
+            color: var(--text);
         }
-
-        .cred-item p {
-            font-size: 0.9rem;
-            font-weight: 300;
-            color: var(--white-muted);
-            line-height: 1.6;
+        .training-list .meta {
+            font-size: 0.84rem;
+            color: var(--text-mute);
+            letter-spacing: 0.04em;
+            white-space: nowrap;
         }
 
         /* ===== LANGUAGES ===== */
         .languages {
-            margin-bottom: 4rem;
+            border-top: 1px solid var(--line);
+            padding: 7rem 0;
         }
-
-        .languages h2 {
-            font-family: var(--font-heading);
-            font-size: 1.3rem;
-            font-weight: 400;
-            margin-bottom: 1.5rem;
-        }
-
-        .lang-tags {
+        .lang-row {
             display: flex;
-            gap: 0.8rem;
+            gap: 3rem;
             flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        .lang {
+            flex: 1 1 180px;
+            padding: 1.6rem 0;
+            border-top: 1px solid var(--line);
+        }
+        .lang .name {
+            font-family: var(--serif);
+            font-size: 1.4rem;
+            color: var(--text);
+            margin-bottom: 0.4rem;
+        }
+        .lang .level {
+            font-size: 0.82rem;
+            color: var(--text-mute);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
         }
 
-        .lang-tags span {
-            padding: 0.5rem 1.2rem;
-            border: 1px solid rgba(255,255,255,0.15);
-            font-size: 0.88rem;
-            font-weight: 400;
-            color: var(--white-soft);
+        .section-label {
+            font-size: 0.74rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.4rem;
         }
 
         /* ===== CTA ===== */
-        .about-cta {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 3rem;
+        .cta {
+            border-top: 1px solid var(--line);
             text-align: center;
+            padding: 9rem 0;
+            background: var(--bg-soft);
         }
-
-        .about-cta h2 {
-            font-family: var(--font-heading);
-            font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+        .cta h2 {
+            font-family: var(--serif);
+            font-size: clamp(2.4rem, 5vw, 3.6rem);
             font-weight: 400;
-            margin-bottom: 1rem;
+            line-height: 1.15;
+            margin-bottom: 1.4rem;
         }
-
-        .about-cta p {
-            color: var(--white-soft);
-            font-size: 1rem;
-            font-weight: 300;
-            margin-bottom: 2rem;
-            max-width: 450px;
-            margin-left: auto;
-            margin-right: auto;
+        .cta h2 em { font-style: italic; color: var(--text-soft); }
+        .cta p {
+            color: var(--text-soft);
+            max-width: 520px;
+            margin: 0 auto 2.4rem;
+            font-size: 1.02rem;
         }
-
-        .btn-primary {
+        .btn {
             display: inline-block;
-            padding: 1rem 2.2rem;
-            background: var(--white);
-            color: var(--black);
-            text-decoration: none;
-            font-family: var(--font-body);
-            font-size: 0.9rem;
-            font-weight: 500;
-            letter-spacing: 0.02em;
-            transition: background 0.3s, color 0.3s;
+            padding: 0.95rem 2.2rem;
+            border: 1px solid var(--text-soft);
+            color: var(--text);
+            font-size: 0.82rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
         }
-
-        .btn-primary:hover {
-            background: #e0e0e0;
-        }
+        .btn:hover { background: var(--text); color: var(--bg); }
 
         /* ===== FOOTER ===== */
         footer {
-            padding: 3rem;
+            border-top: 1px solid var(--line);
+            padding: 3.2rem 0 2.2rem;
+        }
+        .foot-grid {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 1.4rem;
+        }
+        .foot-grid p, .foot-grid a {
             font-size: 0.78rem;
-            color: var(--white-muted);
-            border-top: 1px solid rgba(255,255,255,0.06);
+            color: var(--text-mute);
+            letter-spacing: 0.04em;
+        }
+        .foot-grid a:hover { color: var(--text); }
+        .foot-links { display: flex; gap: 1.6rem; }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .container, .container-narrow { padding: 0 1.4rem; }
+            nav { padding: 1.2rem 1.4rem; }
+            .nav-links { gap: 1.2rem; }
+            .nav-links a { font-size: 0.78rem; }
+            .nav-logo { font-size: 1.25rem; }
+            .page-head { padding: 9rem 0 4rem; }
+            .training-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .training, .languages { padding: 5rem 0; }
+            .bio { padding: 3rem 0 5rem; }
+        }
+        @media (max-width: 560px) {
+            .nav-links { display: none; }
+            nav { justify-content: center; }
         }
 
-        footer a {
-            color: var(--white-muted);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        footer a:hover { color: var(--white); }
-
-        .footer-right {
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-        }
-
-        /* ===== FADE IN ===== */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ===== MOBILE ===== */
-        @media (max-width: 768px) {
-            nav { padding: 1.2rem 1.5rem; }
-            .nav-left .nav-row { display: none; }
-            .nav-toggle { display: block; }
-            .nav-logo { font-size: 1.1rem; top: 1.2rem; }
-
-            .nav-left .nav-row.open {
-                display: flex;
-                flex-direction: column;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100vh;
-                background: var(--black);
-                justify-content: center;
-                align-items: center;
-                gap: 2rem;
-                z-index: 100;
-            }
-
-            .nav-left .nav-row.open a {
-                font-size: 1.2rem;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
-            }
-
-            .photo-holder {
-                max-width: 320px;
-                margin: 0 auto;
-            }
-
-            .cred-grid {
-                grid-template-columns: 1fr;
-            }
-
-            footer {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-                padding: 2rem 1.5rem;
-            }
-
-            .footer-right {
-                flex-direction: column;
-                gap: 0.6rem;
-            }
-        }
+        .fade { opacity: 0; transform: translateY(20px); transition: opacity 0.9s ease, transform 0.9s ease; }
+        .fade.in { opacity: 1; transform: none; }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-left">
-            <div class="nav-row" id="navLinks">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="index.html#services">Services</a>
-                <a href="index.html#faq">FAQ</a>
-                <a href="contact.html">Contact</a>
-            </div>
-        </div>
-        <a href="index.html" class="nav-logo">Fang Yang, PhD Counselling</a>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-            <span></span><span></span>
-        </button>
-    </nav>
-
-    <!-- Page Header -->
-    <section class="page-header fade-in">
-        <h1>About me.</h1>
-        <p>The path that brought me here, and why it matters for your journey.</p>
-    </section>
-
-    <!-- About Content -->
-    <div class="about-content">
-
-        <!-- Photo + Bio Grid -->
-        <div class="about-grid fade-in">
-            <div class="photo-holder">
-                <!-- Replace with: <img src="your-photo.jpg" alt="Lou Yang, counsellor"> -->
-                <div class="photo-placeholder">Your photo here</div>
-            </div>
-            <div class="bio-text">
-                <h2>From researcher to counsellor</h2>
-                <p>I hold a Master's in Psychology from the University of Bristol and a PhD from France. I've lived and worked in Taiwan, the UK, France, Belgium, and Germany. That's five countries, four languages, and more moments of "who am I here?" than I can count.</p>
-                <p>This multicultural journey shapes everything I do. I know what it feels like to rebuild your sense of self in a new culture, to carry grief for a home that no longer fits, and to navigate professional life while translating between worlds.</p>
-                <p>My background in cognitive neuroscience means I don't just understand these challenges emotionally. I understand what's happening in the brain when you're stuck in burnout, when anxiety spikes before a meeting in your second language, or when you can't explain to anyone why moving abroad feels like loss.</p>
-            </div>
-        </div>
-
-        <!-- Credentials -->
-        <div class="credentials fade-in">
-            <h2>Training and background</h2>
-            <div class="cred-grid">
-                <div class="cred-item">
-                    <h3>Master's in Psychology</h3>
-                    <p>University of Bristol, UK</p>
-                </div>
-                <div class="cred-item">
-                    <h3>PhD in Psychology</h3>
-                    <p>France</p>
-                </div>
-                <div class="cred-item">
-                    <h3>Cognitive Behavioural Therapy</h3>
-                    <p>Evidence-based approach grounded in neuroscience research</p>
-                </div>
-                <div class="cred-item">
-                    <h3>Intercultural Mindfulness</h3>
-                    <p>Culturally sensitive practice for cross-cultural experiences</p>
-                </div>
-                <div class="cred-item">
-                    <h3>Cognitive Neuroscience</h3>
-                    <p>Understanding how the brain adapts, learns, and heals across environments</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Languages -->
-        <div class="languages fade-in">
-            <h2>Languages</h2>
-            <div class="lang-tags">
-                <span>English</span>
-                <span>Chinese</span>
-                <span>French</span>
-                <span>German (B1)</span>
-            </div>
-        </div>
-
-        <!-- CTA -->
-        <div class="about-cta fade-in">
-            <h2>Want to work together?</h2>
-            <p>Start with a get-to-know-each-other session. No long-term commitment required.</p>
-            <a href="contact.html" class="btn-primary">Get in Touch</a>
-        </div>
-
+<nav id="nav">
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="index.html#approach">Approach</a>
+        <a href="index.html#research">Research</a>
+        <a href="index.html#testimonials">Voices</a>
+        <a href="contact.html">Contact</a>
     </div>
+    <a href="index.html" class="nav-logo">
+        Fang Yang, PhD
+        <span class="small">Counselling &middot; Berlin</span>
+    </a>
+</nav>
 
-    <!-- Footer -->
-    <footer>
-        <span>&copy; 2026 Fang Yang</span>
-        <div class="footer-right">
-            <a href="contact.html">Contact</a>
-            <span>Berlin, Germany</span>
+<section class="page-head">
+    <div class="container fade">
+        <div class="eyebrow">About</div>
+        <h1>Researcher, counsellor, <em>fellow expat.</em></h1>
+        <p>A short story of how I came to do this work, and what brought me to a consulting room in Berlin.</p>
+    </div>
+</section>
+
+<section class="portrait-section">
+    <div class="container fade">
+        <div class="portrait-wrap">
+            <img src="images/fang-portrait.jpg" alt="Dr Fang Yang, counsellor in Berlin">
         </div>
-    </footer>
+    </div>
+</section>
 
-    <!-- Scripts -->
-    <script>
-        // Mobile nav
-        const navToggle = document.getElementById('navToggle');
-        const navLinks = document.getElementById('navLinks');
-        navToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('open');
-        });
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => navLinks.classList.remove('open'));
-        });
+<section class="bio">
+    <div class="container-narrow fade">
+        <div class="bio-body">
+            <p>My journey in cognitive psychology and counselling is driven by a commitment to helping people work through the emotional and behavioural challenges of living in new and unfamiliar environments. After completing my training in Bristol and earning a PhD in Psychology, I dedicated myself to understanding how our minds adapt to life&rsquo;s complexities, particularly during times of change.</p>
 
-        // Scroll fade-in
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.12 });
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-            if (el.getBoundingClientRect().top < window.innerHeight) {
-                el.classList.add('visible');
+            <p>Having lived and worked in Taiwan, the UK, France, Belgium, and now Germany, I bring a global perspective to my practice. Berlin, with its restless expat community, is the right backdrop for this work. I understand the pressures and uncertainties that come with adjusting to a new culture, and I am committed to helping fellow expats find clarity, resilience, and balance during these transitions.</p>
+
+            <p>I work with clients facing burnout, career transitions, anxiety, attachment issues, and trauma. Grounded in Cognitive Behavioural Therapy, my approach focuses on the specific stressors of expatriate life &mdash; managing the emotional toll of uprooting, overcoming feelings of disconnection, navigating career uncertainty in a new country.</p>
+
+            <p>My mission is to help you regain stability and confidence as you adjust to life abroad. Together we work toward balance, purpose, and a deeper sense of well-being &mdash; so that life across cultures becomes something you can actually inhabit, not only survive.</p>
+        </div>
+    </div>
+</section>
+
+<section class="training">
+    <div class="container fade">
+        <div class="training-grid">
+            <h2>Training and <em>background.</em></h2>
+            <ul class="training-list">
+                <li><span class="role">PhD, Psychology</span><span class="meta">University of Bristol</span></li>
+                <li><span class="role">Cognitive Neuroscience research</span><span class="meta">UK &middot; France &middot; Belgium</span></li>
+                <li><span class="role">Postdoctoral researcher</span><span class="meta">Berlin University Alliance</span></li>
+                <li><span class="role">Counselling practice</span><span class="meta">Berlin, present</span></li>
+                <li><span class="role">Public teaching &amp; lectures</span><span class="meta">Cognitive scripts, self-worth, change</span></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="languages">
+    <div class="container fade">
+        <div class="section-label">Languages</div>
+        <h2 style="font-family:var(--serif);font-weight:400;font-size:clamp(1.8rem,3vw,2.4rem);line-height:1.2;">Sessions held in <em style="font-style:italic;color:var(--text-soft);">English or Mandarin.</em></h2>
+        <div class="lang-row">
+            <div class="lang">
+                <div class="name">English</div>
+                <div class="level">Fluent &middot; primary</div>
+            </div>
+            <div class="lang">
+                <div class="name">Mandarin Chinese</div>
+                <div class="level">Native</div>
+            </div>
+            <div class="lang">
+                <div class="name">French</div>
+                <div class="level">Conversational</div>
+            </div>
+            <div class="lang">
+                <div class="name">German</div>
+                <div class="level">Basic</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="container fade">
+        <h2>Want to <em>work together?</em></h2>
+        <p>Ready to take the next step toward a balanced and fulfilling life in Berlin? The first conversation is free and quiet.</p>
+        <a href="contact.html" class="btn">Book a session</a>
+    </div>
+</section>
+
+<footer>
+    <div class="container foot-grid">
+        <p>&copy; 2026 Fang Yang, PhD &middot; Berlin</p>
+        <div class="foot-links">
+            <a href="index.html">Home</a>
+            <a href="contact.html">Contact</a>
+            <a href="https://complicated.life/find-a-therapist/berlin/counsellor-lou-yang" target="_blank" rel="noopener">Complicated Life profile</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('in');
+                io.unobserve(e.target);
             }
         });
-    </script>
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade').forEach(el => io.observe(el));
+</script>
 
 </body>
 </html>
