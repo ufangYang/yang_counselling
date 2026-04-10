@@ -3,265 +3,381 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | Fang Yang, PhD Counselling</title>
-    <meta name="description" content="Get in touch or join the waiting list. Fang Yang, PhD Counselling, Berlin.">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>L</text></svg>">
+    <title>Contact &mdash; Fang Yang, PhD &middot; Counselling in Berlin</title>
+    <meta name="description" content="Get in touch or book a free 20-minute call with Dr Fang Yang. Counselling in Berlin and online, in English and Mandarin Chinese.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.92em' font-size='90' font-family='serif' fill='%23EAE6DE'>F</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --black: #0a0a0a;
-            --black-light: #141414;
-            --white: #FFFFFF;
-            --white-soft: rgba(255,255,255,0.78);
-            --white-muted: rgba(255,255,255,0.5);
-            --font-heading: 'DM Sans', -apple-system, sans-serif;
-            --font-body: 'DM Sans', -apple-system, sans-serif;
+            --bg: #0B0B0B;
+            --bg-soft: #141414;
+            --bg-elev: #1A1A1A;
+            --line: rgba(234, 230, 222, 0.12);
+            --text: #EAE6DE;
+            --text-soft: rgba(234, 230, 222, 0.72);
+            --text-mute: rgba(234, 230, 222, 0.5);
+            --accent: #B89968;
+            --serif: 'Cormorant Garamond', Georgia, serif;
+            --sans: 'Inter', -apple-system, system-ui, sans-serif;
         }
 
         html { scroll-behavior: smooth; }
-
         body {
-            font-family: var(--font-body);
-            color: var(--white);
-            background: var(--black);
-            line-height: 1.7;
-            font-weight: 400;
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--text);
+            font-weight: 300;
             font-size: 16px;
+            line-height: 1.7;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        a:focus-visible, button:focus-visible {
-            outline: 2px solid rgba(255,255,255,0.6);
-            outline-offset: 3px;
-        }
+        a { color: inherit; text-decoration: none; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 2.5rem; width: 100%; }
+        .container-narrow { max-width: 760px; margin: 0 auto; padding: 0 2.5rem; width: 100%; }
 
-        /* ===== NAVIGATION ===== */
+        /* ===== NAV ===== */
         nav {
             position: fixed;
-            top: 0;
-            width: 100%;
-            z|-index: 100;
-            padding: 1.5rem 3rem;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 1.6rem 2.5rem;
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            background: rgba(10, 10, 10, 0.92);
-            backdrop-filter: blur(10px);
+            align-items: center;
+            background: rgba(11, 11, 11, 0);
+            transition: background 0.4s ease, border-color 0.4s ease;
+            border-bottom: 1px solid transparent;
         }
-
-        .nav-logo {
-            font-family: var(--font-heading);
-            font-size: 1.5rem;
-            font-weight: 500;
-            color: var(--white);
-            text-decoration: none;
-            letter-spacing: 0.03em;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            top: 1.5rem;
-            white-space: nowrap;
+        nav.scrolled {
+            background: rgba(11, 11, 11, 0.92);
+            backdrop-filter: blur(14px);
+            border-bottom-color: var(--line);
         }
-
-        .nav-back {
-            color: var(--white);
-            text-decoration: none;
-            font-family: var(--font-body);
-            font-size: 0.82rem;
+        .nav-links { display: flex; gap: 2.4rem; }
+        .nav-links a {
+            font-size: 0.84rem;
             font-weight: 400;
-            letter-spacing: 0.02em;
-            transition: opacity 0.3s;
+            letter-spacing: 0.04em;
+            color: var(--text-soft);
+            transition: color 0.25s;
+            position: relative;
+            padding-bottom: 4px;
+        }
+        .nav-links a:hover { color: var(--text); }
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            left: 0; right: 0; bottom: 0;
+            height: 1px;
+            background: var(--text);
+        }
+        .nav-logo {
+            font-family: var(--serif);
+            font-size: 1.55rem;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+            color: var(--text);
+            text-align: right;
+        }
+        .nav-logo .small {
+            font-family: var(--sans);
+            font-size: 0.7rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--text-mute);
+            display: block;
+            margin-top: 2px;
         }
 
-        .nav-back:hover { opacity: 0.6; }
-
-        /* ===== MAIN CONTENT ===== */
-        .contact-main {
+        /* ===== PAGE HEAD ===== */
+        .page-head {
+            padding: 12rem 0 4rem;
+            text-align: center;
+            border-bottom: 1px solid var(--line);
+        }
+        .page-head .eyebrow {
+            font-size: 0.78rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.6rem;
+        }
+        .page-head h1 {
+            font-family: var(--serif);
+            font-size: clamp(2.6rem, 6vw, 4.6rem);
+            font-weight: 400;
+            line-height: 1.08;
+            margin-bottom: 1.4rem;
+        }
+        .page-head h1 em { font-style: italic; color: var(--text-soft); }
+        .page-head p {
+            color: var(--text-soft);
             max-width: 580px;
             margin: 0 auto;
-            padding: 10rem 2rem 6rem;
-            text-align: center;
-        }
-
-        .contact-main h1 {
-            font-family: var(--font-heading);
-            font-size: clamp(2rem, 4vw, 2.8rem);
-            font-weight: 400;
-            letter-spacing: -0.02em;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-main > p {
             font-size: 1.05rem;
-            color: var(--white-soft);
-            line-height: 1.85;
-            margin-bottom: 2.5rem;
         }
 
-        .btn-primary {
-            display: inline-block;
-            padding: 1rem 2.4rem;
-            background: var(--white);
-            color: var(--black);
-            text-decoration: none;
-            font-family: var(--font-body);
-            font-size: 0.95rem;
-            font-weight: 500;
-            letter-spacing: 0.02em;
-            transition: background 0.3s, transform 0.2s;
+        /* ===== CONTENT ===== */
+        .contact {
+            padding: 6rem 0 8rem;
+            flex: 1;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: start;
         }
 
-        .btn-primary:hover {
-            background: #e0e0e0;
-            transform: translateY(-1px);
-        }
-
-        /* ===== DIVIDER ===== */
-        .divider {
-            width: 60px;
-            height: 1px;
-            background: rgba(255,255,255,0.15);
-            margin: 3.5rem auto;
-        }
-
-        /* ===== EMAIL SECTION ===== */
-        .email-section {
-            text-align: center;
-        }
-
-        .email-section h2 {
-            font-family: var(--font-heading);
-            font-size: 1.3rem;
+        .contact-info h2 {
+            font-family: var(--serif);
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
             font-weight: 400;
-            margin-bottom: 1rem;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+        }
+        .contact-info h2 em { font-style: italic; color: var(--text-soft); }
+
+        .info-row {
+            padding: 1.4rem 0;
+            border-top: 1px solid var(--line);
+        }
+        .info-row:last-child { border-bottom: 1px solid var(--line); }
+        .info-row .label {
+            font-size: 0.74rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.4rem;
+        }
+        .info-row .value {
+            font-family: var(--serif);
+            font-size: 1.25rem;
+            color: var(--text);
+        }
+        .info-row .value a:hover { color: var(--accent); }
+        .info-row .note {
+            font-size: 0.86rem;
+            color: var(--text-mute);
+            margin-top: 0.4rem;
         }
 
-        .email-section  {
-            font-size: 0.95rem;
-            color: var(--white-soft);
-            line-height: 1.8;
-            margin-bottom: 1.2rem;
+        /* form */
+        .form-card {
+            border: 1px solid var(--line);
+            background: var(--bg-soft);
+            padding: 2.6rem 2.4rem;
         }
-
-        .email-link {
-            color: var(--white);
-            text-decoration: none;
-            border-bottom: 1px solid rgba(255,255,255,0.3);
-            padding-bottom: 2px;
-            font-size: 0.95rem;
-            transition: border-color 0.3s;
+        .form-card h3 {
+            font-family: var(--serif);
+            font-size: 1.7rem;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
         }
-
-        .email-link:hover { border-color: var(--white); }
+        .form-card .form-sub {
+            color: var(--text-mute);
+            font-size: 0.92rem;
+            margin-bottom: 2rem;
+        }
+        .field { margin-bottom: 1.4rem; }
+        .field label {
+            display: block;
+            font-size: 0.74rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-mute);
+            margin-bottom: 0.5rem;
+        }
+        .field input, .field textarea {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--line);
+            color: var(--text);
+            font-family: var(--sans);
+            font-size: 1rem;
+            font-weight: 300;
+            padding: 0.7rem 0;
+            transition: border-color 0.25s;
+        }
+        .field input:focus, .field textarea:focus {
+            outline: none;
+            border-bottom-color: var(--accent);
+        }
+        .field textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .form-card button {
+            margin-top: 1rem;
+            display: inline-block;
+            padding: 0.95rem 2.2rem;
+            border: 1px solid var(--text-soft);
+            background: transparent;
+            color: var(--text);
+            font-size: 0.82rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            font-family: var(--sans);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .form-card button:hover { background: var(--text); color: var(--bg); }
 
         /* ===== FOOTER ===== */
         footer {
-            background: var(--white);
-            color: #666;
-            padding: 2.5rem 3rem;
+            border-top: 1px solid var(--line);
+            padding: 3.2rem 0 2.2rem;
+        }
+        .foot-grid {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 1.4rem;
+        }
+        .foot-grid p, .foot-grid a {
             font-size: 0.78rem;
-            font-weight: 400;
-            letter-spacing: 0.02em;
+            color: var(--text-mute);
+            letter-spacing: 0.04em;
         }
-
-        footer a {
-            color: #444;
-            text-decoration: none;
-        }
-
-        footer a:hover { color: var(--black); }
-
-        .footer-right {
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-        }
+        .foot-grid a:hover { color: var(--text); }
+        .foot-links { display: flex; gap: 1.6rem; }
 
         /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            nav { padding: 1.2rem 1.5rem; }
-
-            .nav-logo {
-                position: relative;
-                left: auto;
-                transform: none;
-                top: auto;
-                font-size: 1.2rem;
-            }
-
-            .contact-main { padding: 8rem 1.5rem 4rem; }
-
-            footer {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-
-            .footer-right {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
+        @media (max-width: 900px) {
+            .container, .container-narrow { padding: 0 1.4rem; }
+            nav { padding: 1.2rem 1.4rem; }
+            .nav-links { gap: 1.2rem; }
+            .nav-links a { font-size: 0.78rem; }
+            .nav-logo { font-size: 1.25rem; }
+            .page-head { padding: 9rem 0 3rem; }
+            .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .contact { padding: 4rem 0 5rem; }
+        }
+        @media (max-width: 560px) {
+            .nav-links { display: none; }
+            nav { justify-content: center; }
         }
 
-        /* ===== FADE-IN ===== */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 1s ease, transform 1s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .fade { opacity: 0; transform: translateY(20px); transition: opacity 0.9s ease, transform 0.9s ease; }
+        .fade.in { opacity: 1; transform: none; }
     </style>
 </head>
 <body>
 
-    <nav>
-        <a href="index.html" class="nav-back">&larr; Back</a>
-        <a href="index.html" class="nav-logo">Fang Yang, PhD Counselling</a>
-        <span></span>
-    </nav>
-
-    <div class="contact-main fade-in">
-        <h1>Get in touch.</h1>
-        <p>I'vm currently building my practice and spots are limited. If you're interested in working together, join the waiting list and I'll reach out when a spot opens up.</p>
-
-        <a href="https://forms.gle/WHV9pGXDGqV1tUZS6" class="btn-primary" target="_blank" rel="noopener">Join the Waiting List</a>
+<nav id="nav">
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="index.html#approach">Approach</a>
+        <a href="index.html#research">Research</a>
+        <a href="index.html#testimonials">Voices</a>
+        <a href="contact.html" class="active">Contact</a>
     </div>
+    <a href="index.html" class="nav-logo">
+        Fang Yang, PhD
+        <span class="small">Counselling &middot; Berlin</span>
+    </a>
+</nav>
 
-    <footer>
-        <span>&copy; 2026 Fang Yang</span>
-        <div class="footer-right">
-            <a href="index.html">Home</a>
-            <span>Berlin, Germany</span>
+<section class="page-head">
+    <div class="container fade">
+        <div class="eyebrow">Contact</div>
+        <h1>Let&rsquo;s <em>begin a conversation.</em></h1>
+        <p>Send a short note about what is going on. We arrange a free 20-minute call to see if it feels like a fit before booking a first session.</p>
+    </div>
+</section>
+
+<section class="contact">
+    <div class="container fade">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h2>Quiet ways <em>to reach me.</em></h2>
+
+                <div class="info-row">
+                    <div class="label">Email</div>
+                    <div class="value"><a href="mailto:hello@yangcounselling.com">hello@yangcounselling.com</a></div>
+                    <div class="note">I usually reply within 1 to 2 working days.</div>
+                </div>
+
+                <div class="info-row">
+                    <div class="label">Sessions</div>
+                    <div class="value">Online &middot; In person, Berlin</div>
+                    <div class="note">50 minute sessions, English or Mandarin Chinese.</div>
+                </div>
+
+                <div class="info-row">
+                    <div class="label">Profile</div>
+                    <div class="value"><a href="https://complicated.life/find-a-therapist/berlin/counsellor-lou-yang" target="_blank" rel="noopener">Complicated Life</a></div>
+                    <div class="note">Full credentials and additional context.</div>
+                </div>
+
+                <div class="info-row">
+                    <div class="label">First call</div>
+                    <div class="value">Free, 20 minutes</div>
+                    <div class="note">No pressure to book, no charge.</div>
+                </div>
+            </div>
+
+            <div class="form-card">
+                <h3>Send a note</h3>
+                <p class="form-sub">Tell me a little about what is bringing you here. A few sentences is enough.</p>
+                <form action="mailto:hello@yangcounselling.com" method="post" enctype="text/plain">
+                    <div class="field">
+                        <label for="name">Your name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="field">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="field">
+                        <label for="message">What is on your mind</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit">Send</button>
+                </form>
+            </div>
         </div>
-    </footer>
+    </div>
+</section>
 
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.12 });
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-            if (el.getBoundingClientRect().top < window.innerHeight) {
-                el.classList.add('visible');
+<footer>
+    <div class="container foot-grid">
+        <p>&copy; 2026 Fang Yang, PhD &middot; Berlin</p>
+        <div class="foot-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="https://complicated.life/find-a-therapist/berlin/counsellor-lou-yang" target="_blank" rel="noopener">Complicated Life profile</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('in');
+                io.unobserve(e.target);
             }
         });
-    </script>
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade').forEach(el => io.observe(el));
+</script>
 
 </body>
 </html>
