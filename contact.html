@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact &mdash; Fang Yang, PhD &middot; Counselling in Berlin</title>
-    <meta name="description" content="Get in touch or book a free 20-minute call with Dr Fang Yang. Counselling in Berlin and online, in English and Mandarin Chinese.">
+    <meta name="description" content="Request a free 20-minute call with Dr Fang Yang. Counselling in Berlin and online, in English and Mandarin Chinese.">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.92em' font-size='90' font-family='serif' fill='%23EAE6DE'>F</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -232,6 +232,27 @@
             transition: all 0.3s ease;
         }
         .form-card button:hover { background: var(--text); color: var(--bg); }
+        .form-btn {
+            margin-top: 1.6rem;
+            display: inline-block;
+            padding: 1.05rem 2.4rem;
+            border: 1px solid var(--accent);
+            background: transparent;
+            color: var(--text);
+            font-size: 0.82rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            font-family: var(--sans);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .form-btn:hover { background: var(--accent); color: var(--bg); }
+        .form-note {
+            margin-top: 1.2rem;
+            font-size: 0.82rem;
+            color: var(--text-soft);
+            font-style: italic;
+        }
 
         /* ===== FOOTER ===== */
         footer {
@@ -294,7 +315,7 @@
     <div class="container fade">
         <div class="eyebrow">Contact</div>
         <h1>Let&rsquo;s <em>begin a conversation.</em></h1>
-        <p>Send a short note about what is going on. We arrange a free 20-minute call to see if it feels like a fit before booking a first session.</p>
+        <p>Fill in a short form and I will be in touch to arrange a free 20-minute call. No pressure, no charge, just a chance to see if it feels like a fit.</p>
     </div>
 </section>
 
@@ -305,21 +326,9 @@
                 <h2>Quiet ways <em>to reach me.</em></h2>
 
                 <div class="info-row">
-                    <div class="label">Email</div>
-                    <div class="value"><a href="mailto:hello@yangcounselling.com">hello@yangcounselling.com</a></div>
-                    <div class="note">I usually reply within 1 to 2 working days.</div>
-                </div>
-
-                <div class="info-row">
                     <div class="label">Sessions</div>
                     <div class="value">Online &middot; In person, Berlin</div>
                     <div class="note">50 minute sessions, English or Mandarin Chinese.</div>
-                </div>
-
-                <div class="info-row">
-                    <div class="label">Profile</div>
-                    <div class="value"><a href="https://complicated.life/find-a-therapist/berlin/counsellor-lou-yang" target="_blank" rel="noopener">Complicated Life</a></div>
-                    <div class="note">Full credentials and additional context.</div>
                 </div>
 
                 <div class="info-row">
@@ -327,26 +336,19 @@
                     <div class="value">Free, 20 minutes</div>
                     <div class="note">No pressure to book, no charge.</div>
                 </div>
+
+                <div class="info-row">
+                    <div class="label">Profile</div>
+                    <div class="value"><a href="https://complicated.life/find-a-therapist/berlin/counsellor-lou-yang" target="_blank" rel="noopener">Complicated Life</a></div>
+                    <div class="note">Full credentials and additional context.</div>
+                </div>
             </div>
 
             <div class="form-card">
-                <h3>Send a note</h3>
-                <p class="form-sub">Tell me a little about what is bringing you here. A few sentences is enough.</p>
-                <form action="mailto:hello@yangcounselling.com" method="post" enctype="text/plain">
-                    <div class="field">
-                        <label for="name">Your name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="field">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="field">
-                        <label for="message">What is on your mind</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit">Send</button>
-                </form>
+                <h3>Request a first call</h3>
+                <p class="form-sub">A short form, a few sentences about what is bringing you here. I will read it and reply personally to arrange a time.</p>
+                <a href="https://forms.gle/PNx7ryR6g9ngMfXu8" target="_blank" rel="noopener" class="form-btn">Open the form</a>
+                <p class="form-note">Opens in a new tab. Nothing is shared publicly.</p>
             </div>
         </div>
     </div>
